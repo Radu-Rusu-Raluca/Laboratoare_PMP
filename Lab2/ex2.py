@@ -32,5 +32,5 @@ for i in range(10000):
         nr=nr+1;
 print("probabilitatea ca timpul de raspuns sa fie mai mare de 3 ms: ", nr/10000)
 
-az.plot_posterior({'a':a,'b':b,'c':c, 'd':d, 'x':x}) # Afisarea aproximarii densitatii probabilitatilor, mediei, intervalului etc. variabilelor x,y,z
+az.plot_posterior({'a':a,'b':b,'c':c, 'd':d, 'x':x}) 
 plt.show()
