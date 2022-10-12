@@ -21,5 +21,5 @@ for i in range(10000):
 print("media lui X: ", statistics.mean(x))
 print("deviatia standard a lui X: ", statistics.stdev(x))
 
-az.plot_posterior({'a':a,'b':b,'x':x}) # Afisarea aproximarii densitatii probabilitatilor, mediei, intervalului etc. variabilelor x,y,z
+az.plot_posterior({'a':a,'b':b,'x':x})
 plt.show()
