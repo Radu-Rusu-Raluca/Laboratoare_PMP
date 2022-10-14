@@ -9,7 +9,8 @@ def main():
     model = pm.Model()
     with model:
         cutremur = pm.Bernoulli('C', 0.0005)
-        incendiu = pm.Deterministic('I', pm.math.switch(cutremur, 0.03, 0.01))
+        incendiu_p = pm.Deterministic('incendiu_p', pm.math.switch(cutremur, 0.03, 0.01))
+        incendiu = pm.Bernoulli('I', p=incendiu_p, observed=1)
         alarma_d = pm.Deterministic('alarma_d', pm.math.switch(incendiu, pm.math.switch(cutremur, 0.98, 0.95), pm.math.switch(cutremur, 0.02, 0.0001)))
         alarma = pm.Bernoulli('A', p=alarma_d, observed=1)
         trace = pm.sample(20000, chains=1)
